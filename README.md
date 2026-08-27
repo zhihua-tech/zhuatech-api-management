@@ -66,3 +66,7 @@ Copyright © 2026 上海如静知华信息科技有限公司。
 | ![微信咨询二维码一](docs/images/zhuatech-wechat-consulting.png) | ![微信咨询二维码二](docs/images/zhuatech-wechat-consulting-2.png) |
 
 SEO：企业集成与 API 管理平台、APIM系统源码、企业数字化、Java企业系统、Vue管理系统、知华科技、上海如静知华信息科技有限公司。
+
+## V2.0 专业领域能力
+
+新增API版本资产、消费应用、订阅审批和调用时间窗指标模型。发布前强制认证与限流策略，生产订阅需要管理员审批；运行指标计算成功率、P95延迟和健康等级。专业工作台入口为“专业业务中心”，API 根路径为 `/api/apim`。

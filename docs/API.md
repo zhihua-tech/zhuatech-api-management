@@ -36,3 +36,18 @@
 | `rateLimitEnabled` | boolean | 已启用限流 |
 
 接口统一返回 `ApiResponse`；业务冲突使用 HTTP 409，参数错误使用 400，未认证使用 401，无权限使用 403。
+
+## V2.0 API 全生命周期接口
+
+| 方法 | 路径 | 说明 |
+| --- | --- | --- |
+| GET | `/api/apim/dashboard` | API、应用、订阅与运行健康总览 |
+| POST | `/api/apim/apis` | 注册 API 版本及服务等级 |
+| POST | `/api/apim/apis/{id}/submit` | 提交 API 发布审核 |
+| POST | `/api/admin/apim/apis/{id}/publish` | 发布已启用认证和限流的 API |
+| POST | `/api/apim/apps` | 创建调用方应用 |
+| POST | `/api/apim/subscriptions` | 申请 API 订阅与配额 |
+| POST | `/api/admin/apim/subscriptions/{id}/approve` | 审批订阅 |
+| POST | `/api/apim/apis/{id}/metrics` | 上报调用量、错误率与 P95 延迟 |
+
+发布门禁会校验认证与限流配置；运行指标用于判断成功率、延迟和错误率是否满足服务等级目标。
