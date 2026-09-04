@@ -53,6 +53,10 @@ cd .. && cp .env.example .env && docker compose up --build
 
 开发演示账号：`admin / admin123`、`operator / operator123`。生产环境必须通过环境变量替换全部默认凭据。
 
+## API 版本发布治理
+
+新增 API 上线前的企业发布门禁，统一校验 OpenAPI 契约、认证授权、敏感数据、限流配额、安全扫描、破坏性变更迁移和回滚准备。详见[企业 API 发布门禁](docs/ENTERPRISE_API_PUBLICATION.md)。
+
 ## 许可与商业授权
 
 Copyright © 2026 上海如静知华信息科技有限公司。
