@@ -4,15 +4,24 @@ package cn.zhuatech.apimanagement.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 class ApiPublicationGateServiceTest {
     private final ApiPublicationGateService service = new ApiPublicationGateService();
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void publishesGovernedApiVersion() {
         var result = service.assess(new ApiPublicationGateService.Request("API-100", true, true, true,
                 true, true, true, true, false, true, true, true));
         assertThat(result.decision()).isEqualTo(ApiPublicationGateService.Decision.PUBLISH);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void routesOperationalReadinessToReview() {
         var result = service.assess(new ApiPublicationGateService.Request("API-101", false, true, false,
                 true, false, true, true, false, true, false, true));
@@ -20,6 +29,9 @@ class ApiPublicationGateServiceTest {
         assertThat(result.decision()).isEqualTo(ApiPublicationGateService.Decision.REVIEW);
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @Test void blocksInsecureOrBreakingPublication() {
         var result = service.assess(new ApiPublicationGateService.Request("", false, false, false,
                 false, false, false, false, true, false, false, false));

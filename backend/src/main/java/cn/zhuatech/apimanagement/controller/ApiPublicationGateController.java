@@ -8,12 +8,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @RestController
 @RequestMapping("/api/enterprise/api-management")
 public class ApiPublicationGateController {
     private final ApiPublicationGateService service;
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public ApiPublicationGateController(ApiPublicationGateService service) { this.service = service; }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     @PostMapping("/publication-gate")
     public ApiResponse<?> assess(@RequestBody ApiPublicationGateService.Request request) {
         return ApiResponse.ok(service.assess(request));

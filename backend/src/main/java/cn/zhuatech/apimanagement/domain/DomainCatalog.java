@@ -2,21 +2,51 @@
 package cn.zhuatech.apimanagement.domain;
 import org.springframework.stereotype.Component;
 import java.util.*;
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Component
 public class DomainCatalog {
     private final Map<String, WorkflowAction> actions = new LinkedHashMap<>();
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public DomainCatalog() {
         actions.put("SUBMIT", new WorkflowAction("SUBMIT", "提交发布", List.of("草稿"), "待审批", "OPERATOR"));
         actions.put("PUBLISH", new WorkflowAction("PUBLISH", "批准上线", List.of("待审批"), "已上线", "ADMIN"));
         actions.put("RETIRE", new WorkflowAction("RETIRE", "下线接口", List.of("已上线"), "已下线", "ADMIN"));
     }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String systemName() { return "知华科技企业集成与 API 管理平台"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String scene() { return "API资产、应用接入、鉴权、流量策略、编排、订阅、监控、告警与审计"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String initialStatus() { return "草稿"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String partyLabel() { return "API/消费应用"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String amountLabel() { return "调用价值"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String quantityLabel() { return "调用量"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public String dueLabel() { return "发布期限"; }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public List<ModuleDefinition> modules() { return List.of(
             new ModuleDefinition("API_CATALOG", "API目录", "统一登记版本、协议、负责人和生命周期"),
             new ModuleDefinition("APPLICATION", "应用接入", "管理消费应用、凭据与授权范围"),
@@ -28,7 +58,16 @@ public class DomainCatalog {
             new ModuleDefinition("ALERT", "告警处置", "告警分派、升级和复盘"),
             new ModuleDefinition("AUDIT", "调用审计", "保留调用、策略变更与管理员操作证据")
         ); }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Map<String, WorkflowAction> actions() { return Collections.unmodifiableMap(actions); }
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ModuleDefinition(String code,String name,String description) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record WorkflowAction(String code,String label,List<String> from,String to,String requiredRole) {}
 }
