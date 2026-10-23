@@ -1,0 +1,91 @@
+{
+  "slug": "api-management",
+  "title": "API额度与突发流量预检",
+  "fields": [
+    {
+      "key": "policy_no",
+      "label": "策略编号",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "api",
+      "label": "接口标识",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "client",
+      "label": "客户端",
+      "type": "ID",
+      "length": 200
+    },
+    {
+      "key": "rate_per_minute",
+      "label": "每分钟配额",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0,
+      "min": "1"
+    },
+    {
+      "key": "burst",
+      "label": "突发请求数",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0,
+      "min": "1"
+    },
+    {
+      "key": "daily_quota",
+      "label": "每日配额",
+      "type": "INTEGER",
+      "length": 200,
+      "scale": 0,
+      "min": "1"
+    }
+  ],
+  "unique": [
+    [
+      "policy_no"
+    ],
+    [
+      "api",
+      "client"
+    ]
+  ],
+  "rules": [
+    {
+      "op": "LE",
+      "args": [
+        "burst",
+        "rate_per_minute"
+      ],
+      "code": "BURST_LIMIT",
+      "message": "本策略突发请求数不得超过每分钟配额",
+      "bad": {
+        "burst": "1001"
+      }
+    },
+    {
+      "op": "LE",
+      "args": [
+        "rate_per_minute",
+        "daily_quota"
+      ],
+      "code": "DAILY_QUOTA",
+      "message": "每分钟配额不得超过每日配额",
+      "bad": {
+        "daily_quota": "999"
+      }
+    }
+  ],
+  "sampleCsv": "policy_no,api,client,rate_per_minute,burst,daily_quota\nAPI-POL-001,orders.v1,CLIENT-01,1000,100,100000\n",
+  "limits": {
+    "rows": 500,
+    "bytes": 262144,
+    "columns": 32,
+    "cellCharacters": 4000
+  },
+  "scope": "Read-only batch validation; no persistence, reference-master lookup or full production certification."
+}
