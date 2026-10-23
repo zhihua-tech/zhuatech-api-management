@@ -1,0 +1,58 @@
+[
+  {
+    "patch": {},
+    "expected": {
+      "decision": "HOLD",
+      "availableTokens": "#70",
+      "requestShortfall": "#10",
+      "candidateWaitSeconds": "2"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "requested": "70"
+    },
+    "expected": {
+      "decision": "PASS",
+      "remainingAfter": "#0"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "requested": "101"
+    },
+    "expected": {
+      "candidateWaitSeconds": "N/A"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "refillPerSecond": "0"
+    },
+    "expected": {
+      "candidateWaitSeconds": "N/A"
+    },
+    "error": false
+  },
+  {
+    "patch": {
+      "currentTokens": "101"
+    },
+    "expected": {},
+    "error": true
+  },
+  {
+    "patch": {
+      "elapsedSeconds": "86400",
+      "requested": "100"
+    },
+    "expected": {
+      "decision": "PASS",
+      "availableTokens": "#100"
+    },
+    "error": false
+  }
+]
